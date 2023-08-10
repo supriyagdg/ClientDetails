@@ -1,0 +1,35 @@
+<br><br>
+
+<h4 style="text-align: center;">Client Form</h4> <br>
+
+<form #frm="ngForm" (ngSubmit)="frm.form.valid && onSubmit(frm)" class="container form-control">
+
+    <!-- <input type="hidden" name="id" #id="ngModel" ngModel> -->
+
+    <label for="taskName"><b>Company Name</b></label>
+    <input type="text" class="form-control" name="companyName" #companyName="ngModel" ngModel
+    required [ngClass]="{'is-invalid':frm.submitted && companyName.invalid}"> 
+    <div *ngIf="frm.submitted && companyName.invalid" class="invalid-feedback">
+        Company Name is required
+    </div>
+    <br>
+
+    <label for="creationDate"><b>Creation Date</b></label>
+    <input type="date" class="form-control" name="creationD" #creationD="ngModel" ngModel> <br>
+
+    <label for="asigneeName"><b>Assigned Member</b></label>
+    <input type="text" class="form-control" name="asigneeName" #asigneeName="ngModel" ngModel 
+    required [ngClass]="{'is-invalid':frm.submitted && asigneeName.invalid}" minlength="4">
+    <div *ngIf="frm.submitted && asigneeName.invalid" class="invalid-feedback">
+        Name is required
+        <div *ngIf="asigneeName.errors?.['minlength']">
+            Name must be at least 4 characters long.
+        </div>
+    </div>
+     <br>
+    
+    <button pButton pRipple label="Submit" class="p-button-success"></button> &nbsp;&nbsp;
+    <p-button label="Clear" styleClass="p-button-secondary" type="reset"></p-button>
+
+    </form>
+

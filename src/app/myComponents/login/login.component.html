@@ -1,0 +1,71 @@
+<!-- Section: Design Block -->
+
+
+<section class="background-radial-gradient overflow-hidden">
+  
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+  
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+  
+          <div class="card bg-glass">
+            <div class="card-body px-4 py-5 px-md-5">
+              <form #frm="ngForm" (ngSubmit)="frm.form.valid && Login(frm)">
+    
+                <div class="row">
+                  <div class="col-md-12 mb-4">
+                   <h4>Welcome Back!</h4>   
+                  </div>
+                  
+                </div>
+  
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" class="form-control" name="email" #email="ngModel" ngModel
+                  required [ngClass]="{'is-invalid':frm.submitted && email.invalid}"
+                  pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                 <div *ngIf="frm.submitted && email.invalid" class="invalid-feedback">
+                  Email is required
+                   <div *ngIf="email.errors?.['pattern']">
+                       enter valid email
+                  </div>
+                </div>
+
+                  <label class="form-label" for="form3Example3">Email Id</label>
+                </div>
+  
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input type="password" class="form-control" name="pass" #pass="ngModel" ngModel
+                  required [ngClass]="{'is-invalid':frm.submitted && pass.invalid}" minlength="4">
+                  <div *ngIf="frm.submitted && pass.invalid" class="invalid-feedback">
+                      Name is required
+                      <div *ngIf="pass.errors?.['minlength']">
+                          Name must be at least 4 characters long.
+                      </div>
+                  </div>
+                        <div class="row">
+                           <div class="col-6">
+                            <label class="form-label" for="form3Example4">Password</label>&nbsp;
+                           </div>
+                           <div class="col-6">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#!">Forgot password?</a>
+                           </div>
+                        </div>
+                </div>
+  
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary mb-4">
+                  Login
+                </button>
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->

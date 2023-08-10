@@ -1,0 +1,29 @@
+<br>
+<h5 style="text-align: center;">Clients</h5> <br>
+<div>
+    <p-table [value]="allData"[tableStyle]="{ 'min-width': '50rem'}">
+
+        <ng-template  pTemplate="caption">
+           <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success" routerLink="/form"></button>
+        </ng-template>
+
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ClientId</th>
+                <th>Company Name</th>
+                <th>Creation date</th>
+                <th>Assigned Member</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-ts>
+            <tr>
+                <td>{{ ts.id }}</td>
+                <td>{{ ts.companyName}}</td>
+                <td> {{ts.creationD}}</td>
+                <td>{{ ts.asigneeName }}</td>
+                <td><a routerLink="/detailInfo/{{ts.id}}"><i class="pi pi-user"></i></a></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
